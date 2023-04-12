@@ -4,112 +4,171 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Astronomy Picture of The Day</title>
+    <title>Astronomy Picture of the Day</title>
+    <link rel="stylesheet" href="./src/CSS/apodStyle.css" />
+    <link rel="stylesheet" href="./src/CSS/mobile.css" />
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-      crossorigin="anonymous"
+      rel="shortcut icon"
+      type="imagex/png"
+      href="./src/assets/nasa-logo.svg"
     />
-    <link rel="stylesheet" href="./src/assets/style/style.css" />
   </head>
-
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand">
-          <img src="./src/assets/images/Nasa-Logo.png" height="40" alt="nasa-logo" class="nasa-logo"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="https://api.nasa.gov/" target="_blank">documentação API<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://apod.nasa.gov/apod/astropix.html" target="_blank">página APOD [NASA]</a>
-            </li>
-          
-          </ul>
-          
+      <img class="logo" src="./src/assets/nasa-logo.svg" alt="Logo Nasa" />
+      <nav>
+        <div class="dropdown">
+          <span>
+            Missions
+            <div class="dropdown-content">
+              <a href="https://www.nasa.gov/specials/artemis/"
+                ><li>Artemis Program</li></a
+              >
+              <a
+                href="https://www.nasa.gov/exploration/commercial/crew/index.html"
+                ><li>Commercial Crew</li></a
+              >
+              <a href="https://www.nasa.gov/planetarydefense/dart/dart-news"
+                ><li>DART</li></a
+              >
+              <a
+                href="https://www.nasa.gov/mission_pages/hubble/main/index.html"
+              >
+                <li>Hubble Space Telescope</li>
+              </a>
+              <a
+                href="https://www.nasa.gov/mission_pages/station/main/index.html"
+                ><li>International Space Station</li></a
+              >
+              <a href="https://www.nasa.gov/missions"
+                ><li>All Missions A-Z</li></a
+              >
+            </div>
+          </span>
+        </div>
+        <div class="dropdown">
+          <span>
+            Galleries
+            <div class="dropdown-content">
+              <a href="https://www.nasa.gov/multimedia/imagegallery/iotd.html"
+                ><li>Image of the Day</li></a
+              >
+              <a href="https://www.nasa.gov/multimedia/imagegallery/index.html"
+                ><li>Image Galleries</li></a
+              >
+              <a
+                href="https://www.nasa.gov/content/ultra-high-definition-video-gallery"
+                ><li>Ultra High-Def Videos</li></a
+              >
+              <a href="https://www.nasa.gov/multimedia/guidelines/index.html"
+                ><li>Usage and Copyrigth</li></a
+              >
+              <a href="https://www.nasa.gov/multimedia/videogallery/index.html"
+                ><li>Videos</li></a
+              >
+            </div>
+          </span>
+        </div>
+        <a
+          class="dropdown nasaTv"
+          href="https://www.nasa.gov/multimedia/nasatv/index.html#public"
+          >NASA TV</a
+        >
+        <div class="dropdown">
+          <span>
+            Follow NASA
+            <div class="dropdown-content">
+              <a href="https://www.nasa.gov/solve/index.html"
+                ><li>Get Involved</li></a
+              >
+              <a href="https://blogs.nasa.gov/"> <li>NASA Blogs</li></a>
+              <a href="https://www.nasa.gov/nasalive"> <li>NASA Live</li></a>
+              <a href="https://www.nasa.gov/content/nasa-newsletters"
+                ><li>NASA Newsletters</li></a
+              >
+              <a href="https://www.nasa.gov/connect/social/index.html"
+                ><li>NASA Socials</li></a
+              >
+            </div>
+          </span>
+        </div>
+        <div class="dropdown">
+          <span>
+            Downloads
+            <div class="dropdown-content">
+              <a href="https://www.nasa.gov/connect/apps.html"><li>Apps</li></a>
+              <a href="https://www.nasa.gov/connect/sounds/index.html"
+                ><li>Adio & Ringtones</li></a
+              >
+              <a href="https://www.nasa.gov/connect/ebooks/index.html"
+                ><li>E-Books</li></a
+              >
+              <a href="https://www.nasa.gov/podcasts"><li>Podcasts</li></a>
+              <a href="https://www.nasa.gov/feature/third-rock-radio"
+                ><li>Third Rock Radio</li></a
+              >
+            </div>
+          </span>
+        </div>
+        <div class="dropdown">
+          <span>
+            About
+            <div class="dropdown-content">
+              <a href="https://www.nasa.gov/about/index.html"
+                ><li>About NASA</li></a
+              >
+              <a href="https://www.nasa.gov/astronauts"><li>Astronauts</li></a>
+              <a href="https://www.nasa.gov/careers"><li>Careers@NASA</li></a>
+              <a href="https://www.nasa.gov/nasa-leadership"
+                ><li>Leadership</li></a
+              >
+              <a href="https://www.nasa.gov/about/sites/index.html"
+                ><li>Locations</li></a
+              >
+            </div>
+          </span>
+        </div>
+        <div class="dropdown">
+          <span>
+            NASA Audiences
+            <div class="dropdown-content">
+              <a href="https://www.nasa.gov/news/media/info/index.html"
+                ><li>For Media</li></a
+              >
+              <a href="https://www.nasa.gov/stem/foreducators/k-12/index.html"
+                ><li>For Educators</li></a
+              >
+              <a href="https://www.nasa.gov/stem"><li>For Students</li></a>
+            </div>
+          </span>
         </div>
       </nav>
-      
     </header>
-
-    <main>
-      <h1> foto astronômica do dia </h1><br>
-      <label>escolha uma data</label><br />
-      <input type="date" id="dia" max="" /><br />
-
-      <button id="botao" onclick="apodController.envia(event)">entre no cosmos</button><br />
-
-      <div id="fotoDia"></div>
-      <br />
-
-      <img id="imagem" src=""/>
-      <iframe id="video" src="" width="960" height="540" autoplay></iframe>
-
-      <div class="mt-3">
-        <small id="copyright" ></small>
+    <main class="noselect">
+      <h1>Astronomy Picture of the Day</h1>
+      <div class="selecaoData">
+        <label for="dataEntrada">Date:</label>
+        <input type="date" name="dataEntrada" id="data" />
+        <span class="dataInvalida"> - Invalid date</span>
+        <button class="enter" type="submit" for="dataEntrada">Enter</button>
       </div>
-
-      <article class="trn mt-4"></article>
-
-      <div>
-        <img id="ft" src="./src/assets/images/rem.jpg" />
-      </div>
+      <h2 class="titulo"></h2>
+      <p class="mostraData"></p>
+      <img class="dayPicture" src="" alt="Picture of the day (Nasa)" />
+      <iframe class="dayVideo" src="" alt="Video of the day (Nasa)"></iframe>
+      <p class="direitosImagem"></p>
+      <p class="descricao"></p>
     </main>
-
     <footer>
-      Criado por Carolly Barbosa | Web Dev FullStack | Resilia Educação |
-
-      <a href="https://github.com/carollyb" target="_blank">
-        <ion-icon name="logo-github"></ion-icon>
-      </a>
-      <a
-        href="https://www.linkedin.com/in/carolly-barbosa-283a7a1b9/"
-        target="_blank"
-      >
-        <ion-icon name="logo-linkedin"></ion-icon>
-      </a>
+      <p class="copyright">
+        &COPY; Created by
+        <a href="https://github.com/LeoAChaves">Leonardo Chaves</a> - For
+        educational purposes,
+        <a href="https://www.resilia.com.br/">Resilia 2021</a>.
+      </p>
     </footer>
-
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous"
-    ></script>
-    
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./src/app/model/Api.js"></script>
-    <script src="./src/app/controller/ApodController.js"></script>
-    <script src="./src/app/view/ApodView.js"></script>
-    <script src="./src/app/helpers/DateHelper.js"></script>
-    <script>
-      let apodController = new ApodController();
-      let dateHelper = new DateHelper();
-      dateHelper.today()
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./src/JS/apodScript.js"></script>
   </body>
 </html>
 
