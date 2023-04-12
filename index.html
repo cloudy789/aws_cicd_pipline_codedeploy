@@ -1,58 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>APOD</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NASA APOD</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
 
-    <!--external CSS link-->
-    <link rel="stylesheet" href="stylesheets/css/styles.css">
+      .photo {
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="photo"></div>
+    <script>
+      const getPhoto = async (
+        url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+      ) => {
+        const request = await fetch(url);
+        const json = await request.json();
 
-    <!--external fonts link-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <section class="section-container">
-            <div class="section-item">
-                <h1 id="pageTitle">APOD<br>
-                    Astronomy Picture of the Day
-                </h1>
-                
-            </div>
-            
-            <div class="section-item select-date">
-                <input type="date" name="" value=""><br>
-                <button type ="button" name="">Select a Date</button>
-            </div>
-        </section>
-    </header>
+        if (request.status === 429) {
+          throw new Error("Too many requests");
+        }
+        // Throw an error if the request limit on the demo API key is met
 
-    <hr>
-    
-    <div>
-        <h2 id="title">Title</h2>
-    </div>
-   
-    <section class="content-container">   
-       <div class="content-item">
-            <img src="" alt="" id="apodImage">
-        </div>
-        
-        <div class="content-item content">
-            <h2 id="apodDate">Date</h2>
-            <h3 id="apodExplanation">Explanation</h3>
-        </div>
-    </section>
+        if (json.media_type === "image") {
+          document.querySelector(
+            ".photo"
+          ).style.backgroundImage = `url(${json.hdurl})`;
+        } else {
+          const date = new Date();
+          date.setDate(date.getDate() - 1);
+          // Yesterday's date to be formatted below
 
-    <!--background-->
+          let day = date.getDate();
+          let month = date.getMonth() + 1;
+          const year = date.getFullYear();
 
-    <!--external JS link-->
-    <script type="text/javascript" src="js/main.js"></script>
-</body>
+          if (day < 10) {
+            day = "0" + day;
+          }
+          if (month < 10) {
+            month = "0" + month;
+          }
+          // Add a 0 in front in case the month or date is less than 10
+
+          const yesterday = `${year}-${month}-${day}`;
+          // NASA's API requires that the date be formatted as yyyy-mm-dd
+
+          getPhoto(
+            `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${yesterday}`
+          );
+        }
+        // If today's picture is not an image, get yesterday's date and request that picture
+      };
+
+      getPhoto();
+
+      setInterval(() => {
+        const utcHour = new Date().getUTCHours();
+        // Get the current hour in UTC
+
+        if (utcHour === 5) {
+          getPhoto();
+        }
+        // 5am UTC is equal to midnight EST, when the photo is updated
+      }, 1000 * 60 * 60);
+      // Refresh every hour
+    </script>
+  </body>
 </html>
 
