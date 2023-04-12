@@ -1,37 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>AAR DEMO | AWS CLOUD DEPLOYMENT</title>
-  <style>
-    body {
-      color: #000080;
-      background-color: #FFFFFF;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-    }
-    
-    h1 {
-      font-size: 500%;
-      font-weight: normal;
-      margin-bottom: 0;
-    }
-    
-    h2 {
-      font-size: 200%;
-      font-weight: normal;
-      margin-bottom: 0;
-    }
-  </style>
-</head>
-<body>
-  <div align="center">
-    <img src="https://s3.ap-south-1.amazonaws.com/www.basava.com/aar_logo_final.png" style="max-width: 20%;">
-    <h1>Congratulations!!!</h1>
-      <h2>Welcome to DMV Team 3 is super cool| Dan Joyner</h2>
-    <h3>This application was deployed using AWS CodeDeploy.</h3>
-    <p>For next steps, read the <a href="http://aws.amazon.com/documentation/codedeploy">AWS CodeDeploy Documentation</a>.</p>
-  </div>
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="index.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <title>Nasa</title>
+   </head>
+   <body>
+        <div class="container">
+            <div class="modal-header">
+                <h3 class="modal-title col-md-6">ASTRONOMY PICTURE OF THE DAY</h3>
+                <h5 class="modal-title col-md-6">Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</h5>
+            </div>
+            <div class="modal-body row align-items-center">
+                <div class="col-sm">
+                    <input type="date" class="form-control" id="data-busca" value="2021-01-01">
+                </div>
+                <div class="col-sm">
+                    <input type="button" class="btn btn-primary" id="botao" value="search">
+                </div>
+            </div>
+            <div class="modal-body row align-items-center" id="texto-nasa">
+                <h3 class="modal-title" id="titulo-api"></h3>
+                <p id="texto-api"></p>
+                <h5 id="texto-auxiliar"></h5>
+                <a href="#" id="imagem-api"></a>
+            </div>
+            <div class="modal-footer">
+                Developed by Dan
+            </div>
+        </div>
+
+        <div class="modal" tabindex="-1" id="modal-imagem" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="titulo-modal"></h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Image HD</h5>
+                    <p id="imagem-hd"></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="index.js"></script>
+   </body>
 </html>
 
