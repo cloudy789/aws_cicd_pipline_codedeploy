@@ -1,58 +1,58 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="index.css">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-      <title>Nasa</title>
-   </head>
-   <body>
-        <div class="container">
-            <div class="modal-header">
-                <h3 class="modal-title col-md-6">ASTRONOMY PICTURE OF THE DAY</h3>
-                <h5 class="modal-title col-md-6">Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</h5>
-            </div>
-            <div class="modal-body row align-items-center">
-                <div class="col-sm">
-                    <input type="date" class="form-control" id="data-busca" value="2021-01-01">
-                </div>
-                <div class="col-sm">
-                    <input type="button" class="btn btn-primary" id="botao" value="search">
-                </div>
-            </div>
-            <div class="modal-body row align-items-center" id="texto-nasa">
-                <h3 class="modal-title" id="titulo-api"></h3>
-                <p id="texto-api"></p>
-                <h5 id="texto-auxiliar"></h5>
-                <a href="#" id="imagem-api"></a>
-            </div>
-            <div class="modal-footer">
-                Developed by Dan
-            </div>
-        </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>APOD</title>
 
-        <div class="modal" tabindex="-1" id="modal-imagem" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="titulo-modal"></h4>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h5>Image HD</h5>
-                    <p id="imagem-hd"></p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-              </div>
+    <!--external CSS link-->
+    <link rel="stylesheet" href="stylesheets/css/styles.css">
+
+    <!--external fonts link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <section class="section-container">
+            <div class="section-item">
+                <h1 id="pageTitle">APOD<br>
+                    Astronomy Picture of the Day
+                </h1>
+                
             </div>
+            
+            <div class="section-item select-date">
+                <input type="date" name="" value=""><br>
+                <button type ="button" name="">Select a Date</button>
+            </div>
+        </section>
+    </header>
+
+    <hr>
+    
+    <div>
+        <h2 id="title">Title</h2>
+    </div>
+   
+    <section class="content-container">   
+       <div class="content-item">
+            <img src="" alt="" id="apodImage">
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="index.js"></script>
-   </body>
+        
+        <div class="content-item content">
+            <h2 id="apodDate">Date</h2>
+            <h3 id="apodExplanation">Explanation</h3>
+        </div>
+    </section>
+
+    <!--background-->
+
+    <!--external JS link-->
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
 </html>
 
