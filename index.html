@@ -1,83 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NASA APOD</title>
-    <style>
-      body {
-        padding: 0;
-        margin: 0;
-        overflow: hidden;
-      }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="APOD: Astronomy Picture of the Day ou em Português APOD: Imagem Astronômica do Dia é um website da NASA que disponibiliza uma imagem por dia do nosso vasto universo. Desenvolvi este pequeno site com intuito de estudar como consumir API'S com AngularJs">
+    <meta name="keywords" content="nasa, universe images, api, api nasa, astronomy, apod">
+    <meta name="author" content="Rafael Rotiroti">
+    <title>Astronomy Picture of the Day - NASA</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="dist//css/bulma/bulma.min.css">
+    <link rel="stylesheet" href="dist/css/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113887313-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      .photo {
-        width: 100vw;
-        height: 100vh;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="photo"></div>
-    <script>
-      const getPhoto = async (
-        url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
-      ) => {
-        const request = await fetch(url);
-        const json = await request.json();
+  gtag('config', 'UA-113887313-2');
+</script>
 
-        if (request.status === 429) {
-          throw new Error("Too many requests");
-        }
-        // Throw an error if the request limit on the demo API key is met
-
-        if (json.media_type === "image") {
-          document.querySelector(
-            ".photo"
-          ).style.backgroundImage = `url(${json.hdurl})`;
-        } else {
-          const date = new Date();
-          date.setDate(date.getDate() - 1);
-          // Yesterday's date to be formatted below
-
-          let day = date.getDate();
-          let month = date.getMonth() + 1;
-          const year = date.getFullYear();
-
-          if (day < 10) {
-            day = "0" + day;
-          }
-          if (month < 10) {
-            month = "0" + month;
-          }
-          // Add a 0 in front in case the month or date is less than 10
-
-          const yesterday = `${year}-${month}-${day}`;
-          // NASA's API requires that the date be formatted as yyyy-mm-dd
-
-          getPhoto(
-            `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${yesterday}`
-          );
-        }
-        // If today's picture is not an image, get yesterday's date and request that picture
-      };
-
-      getPhoto();
-
-      setInterval(() => {
-        const utcHour = new Date().getUTCHours();
-        // Get the current hour in UTC
-
-        if (utcHour === 5) {
-          getPhoto();
-        }
-        // 5am UTC is equal to midnight EST, when the photo is updated
-      }, 1000 * 60 * 60);
-      // Refresh every hour
-    </script>
-  </body>
+</head>
+<body ng-app="app" ng-controller="DayImage">
+  <div class="container">
+    <section class="title-section">
+      <h1 class="title has-text-centered">{{nasaImageInfo.title}}</h1>
+    </section>
+  </div> 
+  <div class="container is-widescreen">
+    <section>
+      <figure class="imagem-nasa">
+        <img class="image" src="{{nasaImageInfo.hdurl}}" alt="{{nasaImageInfo.title}}">
+        <figcaption class="is-small">{{nasaImageInfo.explanation}}</figcaption>
+      </figure>
+    </section>
+  </div> 
+  <div class="container">
+    <section>
+      <div class="columns is-mobile">
+        <div class="column">
+            <p class="has-text-centered">Copyright: {{nasaImageInfo.copyright}}</p>
+        </div>
+        <div class="column">
+            <p class="has-text-centered">Date: {{nasaImageInfo.date | date:'dd/MM/yyyy'}}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="container">
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <div class="columns">
+            <div class="column">
+              <a href="https://apod.nasa.gov/apod/astropix.html">Copyright APOD - </a><a href="https://www.nasa.gov/">NASA</a>
+            </div>
+            <div class="column">
+              <a href="https://github.com/rotirotirafa">My GitHub Profile</a>
+            </div>
+            <div class="column">
+                <a href="mailto:rotirotirafa@gmail.com">Contact</a>
+            </div>
+            <div class="column">
+                <a href="https://bulma.io" target="_blank">
+                  <img src="https://bulma.io/images/made-with-bulma--dark.png" alt="Made with Bulma" width="128" height="24">
+                </a>
+            </div>
+            <div class="column">
+              <a href="https://angularjs.org/" target="_blank">
+                <img width="117" height="30" src="img/angularjs-for-header-only.svg" alt="AngularJS">
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+  </div>
+<script src="dist/angular/angular.js"></script>
+<script src="dist/angular/angular-resource.min.js"></script>
+<script src="dist/app.js"></script>
+</body>
 </html>
 
