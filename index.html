@@ -1,174 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Astronomy Picture of the Day</title>
-    <link rel="stylesheet" href="./src/CSS/apodStyle.css" />
-    <link rel="stylesheet" href="./src/CSS/mobile.css" />
-    <link
-      rel="shortcut icon"
-      type="imagex/png"
-      href="./src/assets/nasa-logo.svg"
-    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NASA APOD</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .photo {
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <img class="logo" src="./src/assets/nasa-logo.svg" alt="Logo Nasa" />
-      <nav>
-        <div class="dropdown">
-          <span>
-            Missions
-            <div class="dropdown-content">
-              <a href="https://www.nasa.gov/specials/artemis/"
-                ><li>Artemis Program</li></a
-              >
-              <a
-                href="https://www.nasa.gov/exploration/commercial/crew/index.html"
-                ><li>Commercial Crew</li></a
-              >
-              <a href="https://www.nasa.gov/planetarydefense/dart/dart-news"
-                ><li>DART</li></a
-              >
-              <a
-                href="https://www.nasa.gov/mission_pages/hubble/main/index.html"
-              >
-                <li>Hubble Space Telescope</li>
-              </a>
-              <a
-                href="https://www.nasa.gov/mission_pages/station/main/index.html"
-                ><li>International Space Station</li></a
-              >
-              <a href="https://www.nasa.gov/missions"
-                ><li>All Missions A-Z</li></a
-              >
-            </div>
-          </span>
-        </div>
-        <div class="dropdown">
-          <span>
-            Galleries
-            <div class="dropdown-content">
-              <a href="https://www.nasa.gov/multimedia/imagegallery/iotd.html"
-                ><li>Image of the Day</li></a
-              >
-              <a href="https://www.nasa.gov/multimedia/imagegallery/index.html"
-                ><li>Image Galleries</li></a
-              >
-              <a
-                href="https://www.nasa.gov/content/ultra-high-definition-video-gallery"
-                ><li>Ultra High-Def Videos</li></a
-              >
-              <a href="https://www.nasa.gov/multimedia/guidelines/index.html"
-                ><li>Usage and Copyrigth</li></a
-              >
-              <a href="https://www.nasa.gov/multimedia/videogallery/index.html"
-                ><li>Videos</li></a
-              >
-            </div>
-          </span>
-        </div>
-        <a
-          class="dropdown nasaTv"
-          href="https://www.nasa.gov/multimedia/nasatv/index.html#public"
-          >NASA TV</a
-        >
-        <div class="dropdown">
-          <span>
-            Follow NASA
-            <div class="dropdown-content">
-              <a href="https://www.nasa.gov/solve/index.html"
-                ><li>Get Involved</li></a
-              >
-              <a href="https://blogs.nasa.gov/"> <li>NASA Blogs</li></a>
-              <a href="https://www.nasa.gov/nasalive"> <li>NASA Live</li></a>
-              <a href="https://www.nasa.gov/content/nasa-newsletters"
-                ><li>NASA Newsletters</li></a
-              >
-              <a href="https://www.nasa.gov/connect/social/index.html"
-                ><li>NASA Socials</li></a
-              >
-            </div>
-          </span>
-        </div>
-        <div class="dropdown">
-          <span>
-            Downloads
-            <div class="dropdown-content">
-              <a href="https://www.nasa.gov/connect/apps.html"><li>Apps</li></a>
-              <a href="https://www.nasa.gov/connect/sounds/index.html"
-                ><li>Adio & Ringtones</li></a
-              >
-              <a href="https://www.nasa.gov/connect/ebooks/index.html"
-                ><li>E-Books</li></a
-              >
-              <a href="https://www.nasa.gov/podcasts"><li>Podcasts</li></a>
-              <a href="https://www.nasa.gov/feature/third-rock-radio"
-                ><li>Third Rock Radio</li></a
-              >
-            </div>
-          </span>
-        </div>
-        <div class="dropdown">
-          <span>
-            About
-            <div class="dropdown-content">
-              <a href="https://www.nasa.gov/about/index.html"
-                ><li>About NASA</li></a
-              >
-              <a href="https://www.nasa.gov/astronauts"><li>Astronauts</li></a>
-              <a href="https://www.nasa.gov/careers"><li>Careers@NASA</li></a>
-              <a href="https://www.nasa.gov/nasa-leadership"
-                ><li>Leadership</li></a
-              >
-              <a href="https://www.nasa.gov/about/sites/index.html"
-                ><li>Locations</li></a
-              >
-            </div>
-          </span>
-        </div>
-        <div class="dropdown">
-          <span>
-            NASA Audiences
-            <div class="dropdown-content">
-              <a href="https://www.nasa.gov/news/media/info/index.html"
-                ><li>For Media</li></a
-              >
-              <a href="https://www.nasa.gov/stem/foreducators/k-12/index.html"
-                ><li>For Educators</li></a
-              >
-              <a href="https://www.nasa.gov/stem"><li>For Students</li></a>
-            </div>
-          </span>
-        </div>
-      </nav>
-    </header>
-    <main class="noselect">
-      <h1>Astronomy Picture of the Day</h1>
-      <div class="selecaoData">
-        <label for="dataEntrada">Date:</label>
-        <input type="date" name="dataEntrada" id="data" />
-        <span class="dataInvalida"> - Invalid date</span>
-        <button class="enter" type="submit" for="dataEntrada">Enter</button>
-      </div>
-      <h2 class="titulo"></h2>
-      <p class="mostraData"></p>
-      <img class="dayPicture" src="" alt="Picture of the day (Nasa)" />
-      <iframe class="dayVideo" src="" alt="Video of the day (Nasa)"></iframe>
-      <p class="direitosImagem"></p>
-      <p class="descricao"></p>
-    </main>
-    <footer>
-      <p class="copyright">
-        &COPY; Created by
-        <a href="https://github.com/LeoAChaves">Leonardo Chaves</a> - For
-        educational purposes,
-        <a href="https://www.resilia.com.br/">Resilia 2021</a>.
-      </p>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./src/JS/apodScript.js"></script>
+    <div class="photo"></div>
+    <script>
+      const getPhoto = async (
+        url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+      ) => {
+        const request = await fetch(url);
+        const json = await request.json();
+
+        if (request.status === 429) {
+          throw new Error("Too many requests");
+        }
+        // Throw an error if the request limit on the demo API key is met
+
+        if (json.media_type === "image") {
+          document.querySelector(
+            ".photo"
+          ).style.backgroundImage = `url(${json.hdurl})`;
+        } else {
+          const date = new Date();
+          date.setDate(date.getDate() - 1);
+          // Yesterday's date to be formatted below
+
+          let day = date.getDate();
+          let month = date.getMonth() + 1;
+          const year = date.getFullYear();
+
+          if (day < 10) {
+            day = "0" + day;
+          }
+          if (month < 10) {
+            month = "0" + month;
+          }
+          // Add a 0 in front in case the month or date is less than 10
+
+          const yesterday = `${year}-${month}-${day}`;
+          // NASA's API requires that the date be formatted as yyyy-mm-dd
+
+          getPhoto(
+            `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${yesterday}`
+          );
+        }
+        // If today's picture is not an image, get yesterday's date and request that picture
+      };
+
+      getPhoto();
+
+      setInterval(() => {
+        const utcHour = new Date().getUTCHours();
+        // Get the current hour in UTC
+
+        if (utcHour === 5) {
+          getPhoto();
+        }
+        // 5am UTC is equal to midnight EST, when the photo is updated
+      }, 1000 * 60 * 60);
+      // Refresh every hour
+    </script>
   </body>
 </html>
 
