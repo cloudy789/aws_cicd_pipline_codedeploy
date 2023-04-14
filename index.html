@@ -1,17 +1,141 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Info</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-    <title>scary-gallery</title>
+</head>
+<body>
+  
+ <div class="side-nav" id="side-nav" style="z-index:5;">
+  <a id="df"><img id="close" src="https://www.plasticexpert.co.uk/wp-content/themes/plasticexpertTheme/images/close_icon.png"  onclick="closeNav()" width="35" height="35"><h1 style="color:rgb(255, 113, 31)">SpaceInfo</h1></a>
+  <hr class="my-4">
+  <a id="a" href="#" class="display-4"><h3>  HOME</h3></a>
 
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+  <a id="a" href="main/apod.html" class="lead"><h3>  APOD<br><p class="lead text-muted">Astronomical Image of day</p></h3></a>
+  
+  <a id="a" href="main/roverpics.html" class="lead"><h3>  Mars Images<br><p class="lead text-muted">Images from Mars Rovers</p></h3></a>
+  
+<a id="a" href="main/geo.html" class="lead"><h3>  EONET<br><p class="lead text-muted">Earth Natural Event Tracker</p></h3></a>
 
-    <link rel="import" href="../iron-component-page/iron-component-page.html">
-  </head>
-  <body>
-    <iron-component-page src="scary-gallery.html"></iron-component-page>
-  </body>
+    <a id="a" href="main/iss.html" class="lead"><h3>  ISS live position</h3></a>
+    <hr class="my-4">
+
+ </div>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="https://cdn0.iconfinder.com/data/icons/ui-icon-part-2/128/navigation_2-512.png"  onclick="opennav()" width="35" height="35" alt="" loading="lazy">SpaceInfo
+    </a>
+  </nav>
+ 
+  <div class="container-fluid">
+    
+    <div class="jumbotron jumbotron-fluid">
+      
+      <h1 class="display-4" id="main" align="center">Do you want to Explore the Space API's?</h1>
+      <p id="le" class="lead" align="center">This websites makes those formated data into a way which you can visulalize!</p>
+      
+      <hr class="my-4">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+         
+        </ol>
+        <div class="carousel_edits" >
+        <div class="carousel-inner text-center">
+          <div class="carousel-item active">
+            <img src="main/img/isslive.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Live ISS Position</h5>
+              <p>Plots Live ISS position in map.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="main/img/eonet.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>EONET</h5>
+              <p>Plots all natural events happening in the map.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="main/img/mars.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mars Rover images</h5>
+              <p>Gets you images taken from Mars Rovers.</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div></div><div class="text-center"style="margin:0 auto;width: 100%;margin-top: 40px;">
+      <a class="btn btn-primary btn-lg" href="#" onclick="opennav()" role="button">Get Started</a>
+      <a class="btn btn-primary btn-lg" href="#det" role="button">Learn more</a></div>
+      
+    </div>
+<div class="qwe">
+  <h3 class="di" align="center" id="det">Main Features of this website</h3>
+  
+  <div class="row" style="justify-content: center;margin:5% auto;">
+  <div class="col-lg-6 col-md-4 col-xl-5 col-sm-12 text-center" style="margin-top: 20px;">
+    <img src="main/img/eonet.png" width="220px" height="180px">
+    <p class="lead" align="center" style="font-size: 30px;">EONET</p>
+    
+    <p class="lead text-muted">EONET means The Earth Observatory Natural Event Tracker.Users can browse the entire globe daily and look for natural events as they occur. Storms are regularly spotted in the tropics, dust storms over deserts, forest fires in the summers. </p>
+<a href="main/geo.html">Visit Site</a>
+  </div>
+
+<div class="col-lg-6 col-md-4 col-xl-5 col-sm-12 text-center" style="justify-content: center;margin-top: 20px;">
+  <img src="main/img/mars.png" width="220px" height="180px">
+  <p class="lead"  style="font-size: 30px;">Mars Rover Images</p>
+  <p class="lead text-muted"> Photos are organized by the sol (Martian rotation or day) on which they were taken, counting up from the rover's landing date. A photo taken on Curiosity's 1000th Martian sol exploring Mars, for example, will have a sol attribute of 1000.</p>
+  <a href="main/roverpics.html">Visit Site</a>
+</div>
+<div class="col-lg-6 col-md-4 col-xl-5 col-sm-12 text-center" style="justify-content: center;margin-top: 20px;">
+  <img src="main/img/apod.png" width="220px" height="180px">
+  <p class="lead" style="font-size: 30px;">APOD</p>
+  <p class="lead text-muted">Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.This website gets you the images based on the date which you enter.</p>
+  <a href="main/apod.html">Visit Site</a>
+</div>
+<div class="col-lg-6 col-md-4 col-xl-5 col-sm-12 text-center" style="justify-content: center;margin-top: 20px;">
+  <img src="main/img/isslive.png" width="220px" height="180px">
+  <p class="lead" style="font-size: 30px;">Live ISS Position</p>
+  <p class="lead text-muted">This gets the actual position of ISS(International Space Station) and is plotted in the map.The map refreshes itself in 5s.</p>
+  <a href="main/iss.html">Visit Site</a>
+</div>
+
+  
+
+</div>
+<p class="lead text text-center" >Made with <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" width="19px" height="19px"> by Fredy Somy</p>    <div style="display:flex;flex-direction: row;justify-content: center;">
+  <a href="https://github.com/fredysomy" target="_blank" class="giticon" style="margin:1%;"><img class="logo" src="https://img.icons8.com/fluent/35/000000/github--v1.png"/></a> 
+  <a href="https://www.linkedin.com/in/fredysomy/" target="_blank" class="giticon" style="margin:1%;"><img class="logo" src="https://img.icons8.com/fluent/35/000000/linkedin.png"/></a> 
+  
+  
+  </div>
+
+  <script>
+    function opennav() {
+    document.getElementById("side-nav").style.width="300px";
+}
+function closeNav() {
+    document.getElementById("side-nav").style.width="0px";
+ 
+}
+  </script>
+  
+</body>
 </html>
 
